@@ -11,6 +11,8 @@ public class enemyScrpt : MonoBehaviour
     Vector3 targetPosRight = new Vector3();
     float attackTimer = 0f;
     float stopwatch = 0f;
+    Rigidbody2D rb2D;
+    int jumpForce = 250;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,7 +27,7 @@ public class enemyScrpt : MonoBehaviour
         targetPosLeft.x = transform.position.x - 5;
         targetPosRight.x = transform.position.x + 5;
         attackTimer = Random.Range(3, 8);
-
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
 
@@ -52,7 +54,9 @@ public class enemyScrpt : MonoBehaviour
 
         if(stopwatch >= attackTimer)
         {
-
+            rb2D.AddForce(new Vector3(0, 1, 0) * jumpForce); //fiende hoppar efter en tid. random varje gång
+            stopwatch = 0;
+            attackTimer = Random.Range(3, 8);
         }
 
     }
