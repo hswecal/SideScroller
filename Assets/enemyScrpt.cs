@@ -24,7 +24,7 @@ public class enemyScrpt : MonoBehaviour
     {
         if (movingLeft == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosLeft, 3 * Time.deltaTime); //fiende rör sig åt vänster - max
+            transform.position = Vector3.MoveTowards(transform.position, targetPosLeft, 1 * Time.deltaTime); //fiende rör sig åt vänster - max
             if (transform.position == targetPosLeft)
             {
                 movingLeft = false;
@@ -33,7 +33,7 @@ public class enemyScrpt : MonoBehaviour
 
         if (movingLeft == false)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosRight, 3 * Time.deltaTime); //fiende rör sig åt höger - max
+            transform.position = Vector3.MoveTowards(transform.position, targetPosRight, 1 * Time.deltaTime); //fiende rör sig åt höger - max
             if (transform.position == targetPosRight)
             {
                 movingLeft = true;
