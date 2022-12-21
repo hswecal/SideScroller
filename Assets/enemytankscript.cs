@@ -21,7 +21,7 @@ public class enemytankscript : MonoBehaviour
         if(stopwatch >= 5)
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody2D>().AddForce(force * 5);
+            bullet.GetComponent<Rigidbody2D>().AddForce(force * 500);
             stopwatch = 0;
         }
     }
