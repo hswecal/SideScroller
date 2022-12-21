@@ -9,11 +9,13 @@ public class enemytankscript : MonoBehaviour
     public GameObject bulletPrefab;
     Vector3 force = new Vector3(-1, 0);
 
+    public int attackDamage = 20;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "playerAttack")
+        if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject); //dör om den blir attackerad - max
+            collision.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 
