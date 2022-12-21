@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class enemytankscript : MonoBehaviour
 {
+    //triangel fiendens skrip för rörelser och attack - max
     float stopwatch = 0f;
     public GameObject bulletPrefab;
     Vector3 force = new Vector3(-1, 0);
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "playerAttack")
+        {
+            Destroy(gameObject); //dör om den blir attackerad - max
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +26,11 @@ public class enemytankscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stopwatch += Time.deltaTime;
+        stopwatch += Time.deltaTime; //timer för att skjuta
         if(stopwatch >= 5)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody2D>().AddForce(force * 5);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation); //skjuter
+            bullet.GetComponent<Rigidbody2D>().AddForce(force * 500); //ger kraft till kulan
             stopwatch = 0;
         }
     }

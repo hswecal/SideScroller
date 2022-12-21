@@ -4,22 +4,41 @@ using UnityEngine;
 
 
 public class pwrupspeed : MonoBehaviour
-{
-    int speed = 5;
+{ // casper gjorde så att den rör sig upp och ner och max länkade ihop speed med spelaren
     Vector3 uppåt = new Vector3();
     Vector3 neråt = new Vector3();
     bool rörSigUppåt = true;
+    PlayerMovement pm;
+    GameObject player;
+    BoxCollider2D BC2D;
     
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        speed *= 2; // Tror detta bör funka bara för att höja spelarens rörelse fart. -casper
-    }
+  
     // Start is called before the first frame update
     void Start()
     {
         uppåt.y = transform.position.y + 0.5f;
         neråt.y = 0;
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        pm = player.GetComponent<PlayerMovement>();
+        BC2D = GetComponent<BoxCollider2D>();
     }
+
+    IEnumerator SpeedPower()
+    {
+        yield return new WaitForSeconds(10);
+        pm.speed = 5;
+        Destroy(gameObject);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            pm.speed *= 2;
+            StartCoroutine(SpeedPower());
+        }
+    }
+
 
     // Update is called once per frame
     void Update()

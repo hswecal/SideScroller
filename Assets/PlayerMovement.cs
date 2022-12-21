@@ -32,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
             rb2d.AddForce(new Vector3(0, 1, 0) * jumpforce);
         }
 
+        if (speed >= 10)
+        {
+            speed = 10;
+        }
+
         // Kollar om spelaren är på marken för att kunna hoppa igen
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }

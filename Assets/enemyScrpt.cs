@@ -16,9 +16,9 @@ public class enemyScrpt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "playerAttack")
         {
-            Destroy(gameObject); //dör om den rör en spelar - max
+            Destroy(gameObject); //dör om den rör en spelares attack - max
         }
     }
 
