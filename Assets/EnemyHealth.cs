@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    // Gör så att man tar damage och dör
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -24,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    // Tar bort objektet om man är död
     void Die()
     {
         Destroy(gameObject);
