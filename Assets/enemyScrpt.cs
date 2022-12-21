@@ -14,11 +14,13 @@ public class enemyScrpt : MonoBehaviour
     Rigidbody2D rb2D;
     int jumpForce = 250;
 
+    public int attackDamage = 20;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "playerAttack")
+        if(collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject); //dör om den rör en spelares attack - max
+            collision.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 
@@ -56,7 +58,7 @@ public class enemyScrpt : MonoBehaviour
         {
             rb2D.AddForce(new Vector3(0, 1, 0) * jumpForce); //fiende hoppar efter en tid. random varje gång
             stopwatch = 0;
-            attackTimer = Random.Range(3, 8);
+            attackTimer = Random.Range(1, 4);
         }
 
     }
