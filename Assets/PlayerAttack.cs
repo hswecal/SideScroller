@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("Fire1"));
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Attack();
         }
@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
         // Gör skada till de
         foreach (Collider2D enemyLayers in hitEnemies)
         {
-
+            Debug.Log("Hit");
         }
     }
 
@@ -33,9 +33,7 @@ public class PlayerAttack : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
-        {
             return;
-        }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
