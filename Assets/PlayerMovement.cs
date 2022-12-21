@@ -26,10 +26,25 @@ public class PlayerMovement : MonoBehaviour
             transform.position += new Vector3(2, 0, 0) * speed * Time.deltaTime;
         }
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
         // Hoppa
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb2d.AddForce(new Vector3(0, 1, 0) * jumpforce);
+        }
+
+        if (speed >= 10)
+        {
+            speed = 10;
         }
 
         // Kollar om spelaren är på marken för att kunna hoppa igen

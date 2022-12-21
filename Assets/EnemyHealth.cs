@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 300;
+    public int maxHealth = 200;
     int currentHealth;
 
 
@@ -30,4 +30,5 @@ public class PlayerHealth : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
