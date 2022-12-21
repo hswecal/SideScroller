@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     bool isGrounded;
+    public GameObject playerRespawn;
+    Vector2 respawnCoords = new Vector2(-7, -3);
 
     // Update is called once per frame
     void Update()
@@ -45,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
         if (speed >= 10)
         {
             speed = 10;
+        }
+
+        if(transform.position.y < -40)
+        {
+            Instantiate(playerRespawn, respawnCoords, transform.rotation);
+            Destroy(gameObject);
         }
 
         // Kollar om spelaren är på marken för att kunna hoppa igen
