@@ -18,6 +18,8 @@ public class pwrupspeed : MonoBehaviour
     {
         uppåt.y = transform.position.y + 0.5f;
         neråt.y = 0;
+        uppåt.x = transform.position.x;
+        neråt.x = transform.position.x;
         player = FindObjectOfType<PlayerMovement>().gameObject;
         pm = player.GetComponent<PlayerMovement>();
         BC2D = GetComponent<BoxCollider2D>();
