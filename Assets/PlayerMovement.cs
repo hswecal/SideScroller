@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     bool isGrounded;
     
-    Vector2 respawnCoords = new Vector2(-7, -3);
 
     // Update is called once per frame
     void Update()
@@ -49,10 +48,6 @@ public class PlayerMovement : MonoBehaviour
             speed = 10;
         }
 
-        if(transform.position.y < -40)
-        {
-            transform.position = (respawnCoords);
-        }
 
         // Kollar om spelaren är på marken för att kunna hoppa igen
         isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);

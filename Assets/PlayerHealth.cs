@@ -7,11 +7,20 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 300;
     int currentHealth;
 
+    Vector2 respawnCoords = new Vector2(-7, -3);
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    void Update()
+    {
+        if (transform.position.y < -40)
+        {
+            Respawn();
+        }
     }
 
     // Gör så att man tar damage och dör
@@ -21,13 +30,14 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            Respawn();
         }
     }
 
     // Tar bort objektet om man är död
-    void Die()
+    void Respawn()
     {
-        Destroy(gameObject);
+        transform.position = respawnCoords;
+        currentHealth = maxHealth;
     }
 }

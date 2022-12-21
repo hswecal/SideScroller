@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bulletDeleteScript : MonoBehaviour
 {
+    public int attackDamage = 20;
+
     float stopwatch = 0f;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,14 @@ public class bulletDeleteScript : MonoBehaviour
         if (stopwatch >= 10)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 }

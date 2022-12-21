@@ -992,6 +992,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 593215708330690026, guid: 7cf4db6fc8e16ca48beee062b5e4f0fc, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 593215708330690032, guid: 7cf4db6fc8e16ca48beee062b5e4f0fc, type: 3}
       propertyPath: playerRespawn
       value: 
@@ -1006,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 593215708330690038, guid: 7cf4db6fc8e16ca48beee062b5e4f0fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 593215708330690038, guid: 7cf4db6fc8e16ca48beee062b5e4f0fc, type: 3}
       propertyPath: m_LocalPosition.y

@@ -9,15 +9,8 @@ public class enemytankscript : MonoBehaviour
     public GameObject bulletPrefab;
     Vector3 force = new Vector3(-1, 0);
 
-    public int attackDamage = 20;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
-        }
-    }
+
 
     // Update is called once per frame
     void Update()
